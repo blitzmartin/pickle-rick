@@ -4,7 +4,6 @@ import SearchBar from '../components/SearchBar';
 
 export default function Home() {
 
-    const [favorites, setFavorites] = useState([])
     const [characters, setCharacters] = useState([])
     const [query, setQuery] = useState('');
 
@@ -47,8 +46,7 @@ export default function Home() {
         <div>
             <h1>The Rick & Morty Project</h1>
             <SearchBar value={query} onChange={handleChange}  />
-            {favorites.length > 0 && <Cards key="favourite" />}
-            <Cards key="cards" characters={filteredChars} />
+            <Cards key="cards" characters={filteredChars}  />
         </div>
     )
 }
