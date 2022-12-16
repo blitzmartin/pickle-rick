@@ -1,11 +1,13 @@
-export default function SearchBar({value, onChange}) {
-    return (
+export default function SearchBar({ value, onChange }) {
+  return (
+    <div className="searchbar" >
       <label>
         Search character:{' '}
-        <input
-          value={value}
-          onChange={onChange}
-        />
       </label>
-    );
-  }
+      <input
+        value={value}
+        onChange={onChange}
+      />
+    </div>
+  );
+}

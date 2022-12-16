@@ -1,3 +1,37 @@
+:root {
+  --col-light: rgb(227, 247, 255);
+  --col-dark: rgb(32, 32, 32);
+  --col-primary: #caf688;
+  --col-accent: #1A9042;
+}
+
 .App {
   text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 4rem;
+  color: white;
+  text-shadow: 2px 2px #121212;
+}
+
+.main-container {
+  background-color: var(--col-light);
+  color: var(--col-dark);
+}
+
+.header {
+  background: url('../public/portal.jpg');
+  padding: 40px 20px;
+}
+
+.searchbar {
+  padding: 40px 20px;
+  background-color: var(--col-primary);
+}
+
+.searchbar > * {
+  font-size: 1.5rem;
 }

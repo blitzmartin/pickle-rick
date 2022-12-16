@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Cards from "../components/Cards";
+import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
 
 export default function Home() {
@@ -43,8 +44,8 @@ export default function Home() {
     const filteredChars = filterItems(characters, query)
 
     return (
-        <div>
-            <h1>The Rick & Morty Project</h1>
+        <div className='main-container'>     
+            <Header />
             <SearchBar value={query} onChange={handleChange}  />
             <Cards key="cards" characters={filteredChars}  />
         </div>
