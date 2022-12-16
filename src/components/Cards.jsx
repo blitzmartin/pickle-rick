@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import Card from './Card'
@@ -6,6 +6,15 @@ import Card from './Card'
 export default function Cards({ characters }) {
 
     const [favorites, setFavorites] = useState([]);
+
+    // using localStorage getItem to retrieve the saved favorites, if any
+    useEffect(() => {
+        const storedData = JSON.parse(localStorage.getItem('favorites'));
+        if (storedData) {
+            setFavorites(storedData);
+        }
+    }, []);
+
 
     // separating what's flagged as fav and what's not so that the favs can go at the beginning of full array
     const favoriteItems = characters.filter(item => favorites.includes(item.id))
@@ -25,11 +34,19 @@ export default function Cards({ characters }) {
         }
     }
 
-       return (
+    // using localStorage setItem to add favorites to the local store; it checks if there's any favorite otherwise it will always be overwritten by the empty favorites array on first load
+    useEffect(() => {
+        if (favorites.length > 0) {
+            localStorage.setItem('favorites', JSON.stringify(favorites))
+        }
+    }, [favorites])
+
+
+    return (
         <div>
             <h3>You have {favorites.length} {favorites.length === 1 ? "favorite" : "favorites"}</h3>
-            <button 
-                style={{fontSize: "1rem", padding: "8px 10px", cursor: "pointer"}} 
+            <button
+                style={{ fontSize: "1rem", padding: "8px 10px", cursor: "pointer" }}
                 onClick={handleResetFavs}>Reset favorites
             </button>
             <hr />
@@ -39,10 +56,10 @@ export default function Cards({ characters }) {
                     return (
                         <Card key={character.id}
                             character={character}
-                            icon={ favorites.includes(character.id)
-                                ? <RemoveIcon fontSize="large"/>
-                                : <AddIcon fontSize="large"/>
-                        }
+                            icon={favorites.includes(character.id)
+                                ? <RemoveIcon fontSize="large" />
+                                : <AddIcon fontSize="large" />
+                            }
                             handleToggle={handleToggle}
                         />
                     )
