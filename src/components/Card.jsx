@@ -8,12 +8,11 @@ export default function Card({ character, icon, handleToggle }) {
                     <img alt={name} src={image} />
                 </div>
                 <div className="card-info">
-                    <span>Name:</span>
+                    <span className="btn" onClick={() => { handleToggle(id) }}>{icon}</span>
                     <h3>{name}</h3>
                     <p>Was in: <b>{episode.length} episodes</b></p>
                     <p>Species: <b>{species}</b></p>
                     <p>Status: <b>{status}</b></p>
-                    <span className="btn" onClick={() => { handleToggle(id) }}>{icon}</span>
                 </div>
             </div>
         </li>
