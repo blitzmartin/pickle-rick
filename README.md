@@ -16,13 +16,14 @@ The app has all the basic features:
 - when you remove an item to your favorites, it goes back to the original place;
 - through a searchbar you can filter only the queried input;
 
-I have used MUI icons, rendering conditionally the "Add" or "Remove" icon accordingly to the item being a favorite or not.
-The filter function is not case sensitive.
-I have also added a "reset" button to quickly clear all the favorites (does not clear the localStorage).
-
 The app has also 2 out of 3 bonus features:
 - saves favorites locally with localStorage;
 - with a checkbox you can see just the favorites;
+
+I have used MUI icons, rendering conditionally the "Add" or "Remove" icon accordingly to the item being a favorite or not.
+The filter function is not case sensitive.
+I have also added a "reset" button to quickly clear all the favorites (it also clears the localStorage).
+
 
 The app does not use Context. All the features are developed with state variables and props.
 
