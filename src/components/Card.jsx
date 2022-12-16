@@ -1,5 +1,5 @@
 export default function Card({ character, icon, handleToggle }) {
-    const { id, name, image, episode, species, origin } = character;
+    const { id, name, image, episode, species, status } = character;
 
     return (
         <li style={{ listStyleType: "none" }}>
@@ -12,10 +12,9 @@ export default function Card({ character, icon, handleToggle }) {
                     <h2>{name}</h2>
                     <p>Was in: <b>{episode.length} episodes</b></p>
                     <p>Species: <b>{species}</b></p>
-                    <p>Origin: <b>{origin.name}</b></p>
+                    <p>Status: <b>{status}</b></p>
                     <button className="btn" onClick={() => { handleToggle(id) }}>{icon}</button>
                 </div>
-
             </div>
         </li>
     )

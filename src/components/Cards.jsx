@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Favorite from "@mui/icons-material/Favorite"
+import RemoveIcon from '@mui/icons-material/Remove';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import Card from './Card'
 
@@ -27,7 +27,7 @@ export default function Cards({ characters }) {
                                 return (
                                     <Card key={character.id}
                                         character={character}
-                                        icon={<Favorite />}
+                                        icon={<RemoveIcon fontSize="large"/>}
                                         handleToggle={handleToggle}
                                     />
                                 )
@@ -42,7 +42,10 @@ export default function Cards({ characters }) {
                     return (
                         <Card key={character.id}
                             character={character}
-                            icon={<AddBoxIcon fontSize="large" />}
+                            icon={ favorites.includes(character.id)
+                                ? <RemoveIcon fontSize="large"/>
+                                : <AddBoxIcon fontSize="large"/>
+                        }
                             handleToggle={handleToggle}
                         />
                     )
