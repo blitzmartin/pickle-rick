@@ -1,5 +1,6 @@
 export default function Card({ character, icon, handleToggle}) {
 const { id, name, image, episode } = character;
+
     return (
         <li style={{ listStyleType: "none" }}>
             <div>
