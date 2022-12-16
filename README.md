@@ -2,7 +2,7 @@
 
 ![](https://cdn.mos.cms.futurecdn.net/4v4rmrxbbRs2k8rw3zegpE-1200-80.jpg)
 
-##### Thank you for reviewing this assignment!
+#### Thank you for reviewing this assignment!
 
 The app has all the basic features:
 
@@ -34,7 +34,7 @@ It does not follow the DRY principles. It was add in the end as a bonus without 
 
 
 
-###How to run the app
+### How to run the app
 
 This project was created with Create React App. To run it locally, make sure you install the required packages executing 
 `$ npm install` 
