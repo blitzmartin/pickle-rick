@@ -25,7 +25,10 @@ export default function Cards({ characters }) {
 
 
     // just a simple handler to quickly reset the favorites
-    const handleResetFavs = () => { setFavorites([]) }
+    const handleResetFavs = () => { 
+        setFavorites([]) 
+        localStorage.clear();
+    }
 
 
     // when plus icon is clicked, the id of selected item is added in favorites ìarray if not already present and gets removed if already present
