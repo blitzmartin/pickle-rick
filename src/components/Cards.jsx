@@ -6,6 +6,7 @@ import Card from './Card'
 export default function Cards({ characters }) {
 
     const [favorites, setFavorites] = useState([]);
+    const [isChecked, setIsChecked] = useState(false);
 
     // using localStorage getItem to retrieve the saved favorites, if any
     useEffect(() => {
@@ -19,13 +20,9 @@ export default function Cards({ characters }) {
     // separating what's flagged as fav and what's not so that the favs can go at the beginning of full array
     const favoriteItems = characters.filter(item => favorites.includes(item.id))
     const notFavoriteItems = characters.filter(item => !favorites.includes(item.id))
+    let allItems = [...favoriteItems, ...notFavoriteItems];
 
-    
-    const allItems = [...favoriteItems, ...notFavoriteItems];
-
-    const handleResetFavs = () => {
-        setFavorites([])
-    }
+    const handleResetFavs = () => { setFavorites([]) }
 
     // when plus icon is clicked, the id of selected item is added in favorites ìarray if not already present and gets removed if already present
     const handleToggle = (toggledId) => {
@@ -51,22 +48,47 @@ export default function Cards({ characters }) {
                 style={{ fontSize: "1rem", padding: "8px 10px", cursor: "pointer" }}
                 onClick={handleResetFavs}>Reset favorites
             </button>
+            <label>
+                <input
+                    type="checkbox"
+                    onChange={() => setIsChecked(!isChecked)}
+                />
+                Show favorites only
+            </label>
             <hr />
             <h2>List of Characters:</h2>
-            <ul className="cards-container">
-                {allItems.map(character => {
-                    return (
-                        <Card key={character.id}
-                            character={character}
-                            icon={favorites.includes(character.id)
-                                ? <RemoveIcon fontSize="large" />
-                                : <AddIcon fontSize="large" />
-                            }
-                            handleToggle={handleToggle}
-                        />
-                    )
-                })}
-            </ul>
+            {isChecked
+                ? <ul className="cards-container">
+                    {favoriteItems.map(character => {
+                        return (
+                            <Card key={character.id}
+                                character={character}
+                                icon={favorites.includes(character.id)
+                                    ? <RemoveIcon fontSize="large" />
+                                    : <AddIcon fontSize="large" />
+                                }
+                                handleToggle={handleToggle}
+                            />
+                        )
+                    })}
+                </ul>
+                : <ul className="cards-container">
+                    {allItems.map(character => {
+                        return (
+                            <Card key={character.id}
+                                character={character}
+                                icon={favorites.includes(character.id)
+                                    ? <RemoveIcon fontSize="large" />
+                                    : <AddIcon fontSize="large" />
+                                }
+                                handleToggle={handleToggle}
+                            />
+                        )
+                    })}
+                </ul>
+
+            }
+
         </div>
     )
 }
