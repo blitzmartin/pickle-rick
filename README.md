@@ -20,6 +20,8 @@ The app has also 2 out of 3 bonus features:
 - saves favorites locally with localStorage;
 - with a checkbox you can see just the favorites;
 
+At this time, I have never used Typescript, that's why I am missing the last bonus feature.
+
 I have used MUI icons, rendering conditionally the "Add" or "Remove" icon accordingly to the item being a favorite or not.
 
 The filter function is not case sensitive.
