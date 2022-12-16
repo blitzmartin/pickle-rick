@@ -32,6 +32,8 @@ The toggle function to flag an item as favorite does not create a duplicated arr
 
 The way the checkbox works is definitely not the most elegant, it toggles a boolean to render one of two lists: the one with all items or the one with just the favorites.
 It does not follow the DRY principles. It was added in the end as a bonus without refactoring the app with other state var.
+I hope the comments in the code will be eloquent enough to figure out what's going on.
+
 
 ------------
 
