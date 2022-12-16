@@ -8,6 +8,7 @@ export default function Cards({ characters }) {
     const [favorites, setFavorites] = useState([]);
     const [isChecked, setIsChecked] = useState(false);
 
+
     // using localStorage getItem to retrieve the saved favorites, if any
     useEffect(() => {
         const storedData = JSON.parse(localStorage.getItem('favorites'));
@@ -22,8 +23,10 @@ export default function Cards({ characters }) {
     const notFavoriteItems = characters.filter(item => !favorites.includes(item.id))
     let allItems = [...favoriteItems, ...notFavoriteItems];
 
+
     // just a simple handler to quickly reset the favorites
     const handleResetFavs = () => { setFavorites([]) }
+
 
     // when plus icon is clicked, the id of selected item is added in favorites ìarray if not already present and gets removed if already present
     const handleToggle = (toggledId) => {
@@ -33,6 +36,7 @@ export default function Cards({ characters }) {
             setFavorites([...favorites, toggledId]);
         }
     }
+
 
     // using localStorage setItem to add favorites to the local store; it checks if there's any favorite otherwise it will always be overwritten by the empty favorites array on first load
     useEffect(() => {
@@ -88,7 +92,6 @@ export default function Cards({ characters }) {
                     })}
                 </ul>
             }
-
         </div>
     )
 }
