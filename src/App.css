@@ -60,3 +60,7 @@ h1 {
   justify-content: right;
   align-items: flex-end;
 }
+
+.btn {
+  cursor: pointer;
+}

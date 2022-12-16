@@ -13,7 +13,7 @@ export default function Card({ character, icon, handleToggle }) {
                     <p>Was in: <b>{episode.length} episodes</b></p>
                     <p>Species: <b>{species}</b></p>
                     <p>Origin: <b>{origin.name}</b></p>
-                    <span onClick={() => { handleToggle(id) }}>{icon}</span>
+                    <button className="btn" onClick={() => { handleToggle(id) }}>{icon}</button>
                 </div>
 
             </div>
