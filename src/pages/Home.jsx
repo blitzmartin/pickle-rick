@@ -6,9 +6,9 @@ export default function Home() {
 
     const [characters, setCharacters] = useState([])
     const [query, setQuery] = useState('');
-
-    // fetch data from api and set results array as default value for characters state var, also use map and spread operator to add the property isFavorite (false as default) to each object
     const url = "https://rickandmortyapi.com/api/character"
+
+    // when page loads, fetch data from API and set results array as default value for characters state var, also use map and spread operator to add the property isFavorite (false as default) to each object
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
