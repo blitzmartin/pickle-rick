@@ -12,9 +12,12 @@ The app has all the basic features:
 - the homepage shows a grid of cards;
 - each card has at least character name, character image, number of episodes it was featured in;
 - each card has an "add/remove to favorite" toggle function;
+- when you add an item to your favorites, it gets transferred at the top of the list;
+- when you remove an item to your favorites, it goes back to the original place;
 - through a searchbar you can filter only the queried input;
 
 I have also added a "reset" button to quickly clear all the favorites.
+I have used MUI icons, rendering conditionally the "Add" or "Remove" icon accordingly to the item being a favorite or not.
 
 
 The app has also 2 out of 3 bonus features:
