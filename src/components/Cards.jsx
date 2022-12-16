@@ -4,12 +4,15 @@ import AddIcon from '@mui/icons-material/Add';
 import Card from './Card'
 
 export default function Cards({ characters }) {
+
     const [favorites, setFavorites] = useState([]);
+
+    // separating what's flagged as fav and what's not so that the favs can go at the beginning of full array
     const favoriteItems = characters.filter(item => favorites.includes(item.id))
     const notFavoriteItems = characters.filter(item => !favorites.includes(item.id))
-    const correctItems = [...favoriteItems, ...notFavoriteItems];
+    const allItems = [...favoriteItems, ...notFavoriteItems];
 
-    // when heart icon is clicked, its item's id is added in favorites state array if not already present and gets removed if already present
+    // when plus icon is clicked, the id of selected item is added in favorites ìarray if not already present and gets removed if already present
     const handleToggle = (toggledId) => {
         if (favorites.includes(toggledId)) {
             setFavorites(favorites.filter((id) => id !== toggledId));
@@ -24,7 +27,7 @@ export default function Cards({ characters }) {
             <hr />
             <h2>List of Characters:</h2>
             <ul className="cards-container">
-                {correctItems.map(character => {
+                {allItems.map(character => {
                     return (
                         <Card key={character.id}
                             character={character}
