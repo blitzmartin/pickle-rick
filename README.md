@@ -21,7 +21,9 @@ The app has also 2 out of 3 bonus features:
 - with a checkbox you can see just the favorites;
 
 I have used MUI icons, rendering conditionally the "Add" or "Remove" icon accordingly to the item being a favorite or not.
+
 The filter function is not case sensitive.
+
 I have also added a "reset" button to quickly clear all the favorites (it also clears the localStorage).
 
 
