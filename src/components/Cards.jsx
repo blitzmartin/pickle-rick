@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import RemoveIcon from '@mui/icons-material/Remove';
-import AddBoxIcon from '@mui/icons-material/AddBox';
+import AddIcon from '@mui/icons-material/Add';
 import Card from './Card'
 
 export default function Cards({ characters }) {
@@ -16,7 +16,7 @@ export default function Cards({ characters }) {
         }
     }
 
-    return (
+       return (
         <div>
 
             {favorites.length > 0
@@ -37,6 +37,7 @@ export default function Cards({ characters }) {
                 : <h2>You have selected 0 favorites!</h2>
             }
             <hr />
+            <h2>List of Characters:</h2>
             <ul className="cards-container">
                 {characters.map(character => {
                     return (
@@ -44,7 +45,7 @@ export default function Cards({ characters }) {
                             character={character}
                             icon={ favorites.includes(character.id)
                                 ? <RemoveIcon fontSize="large"/>
-                                : <AddBoxIcon fontSize="large"/>
+                                : <AddIcon fontSize="large"/>
                         }
                             handleToggle={handleToggle}
                         />

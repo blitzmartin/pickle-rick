@@ -17,6 +17,14 @@ h1 {
   text-shadow: 2px 2px #121212;
 }
 
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
 .main-container {
   background-color: var(--col-light);
   color: var(--col-dark);

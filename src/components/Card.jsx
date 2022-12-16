@@ -9,11 +9,11 @@ export default function Card({ character, icon, handleToggle }) {
                 </div>
                 <div className="card-info">
                     <span>Name:</span>
-                    <h2>{name}</h2>
+                    <h3>{name}</h3>
                     <p>Was in: <b>{episode.length} episodes</b></p>
                     <p>Species: <b>{species}</b></p>
                     <p>Status: <b>{status}</b></p>
-                    <button className="btn" onClick={() => { handleToggle(id) }}>{icon}</button>
+                    <span className="btn" onClick={() => { handleToggle(id) }}>{icon}</span>
                 </div>
             </div>
         </li>
