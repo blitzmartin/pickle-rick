@@ -19,6 +19,8 @@ export default function Cards({ characters }) {
     // separating what's flagged as fav and what's not so that the favs can go at the beginning of full array
     const favoriteItems = characters.filter(item => favorites.includes(item.id))
     const notFavoriteItems = characters.filter(item => !favorites.includes(item.id))
+
+    
     const allItems = [...favoriteItems, ...notFavoriteItems];
 
     const handleResetFavs = () => {
