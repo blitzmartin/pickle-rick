@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Favorite, FavoriteBorder } from "@mui/icons-material"
+import Favorite from "@mui/icons-material/Favorite"
+import AddBoxIcon from '@mui/icons-material/AddBox';
 import Card from './Card'
 
 export default function Cards({ characters }) {
@@ -21,27 +22,27 @@ export default function Cards({ characters }) {
             {favorites.length > 0
                 ? <>
                     <h2>{favorites.length} Favorites:</h2>
-                    <ul>
-                        {filteredItems.map(character => {
-                            return (
-                                <Card key={character.id}
-                                    character={character}
-                                    icon={<Favorite />}
-                                    handleToggle={handleToggle}
-                                />
-                            )
-                        })}
-                    </ul>
+                        <ul className="cards-container">
+                            {filteredItems.map(character => {
+                                return (
+                                    <Card key={character.id}
+                                        character={character}
+                                        icon={<Favorite />}
+                                        handleToggle={handleToggle}
+                                    />
+                                )
+                            })}
+                        </ul>
                 </>
                 : <h2>You have selected 0 favorites!</h2>
             }
             <hr />
-            <ul>
+            <ul className="cards-container">
                 {characters.map(character => {
                     return (
                         <Card key={character.id}
                             character={character}
-                            icon={<FavoriteBorder />}
+                            icon={<AddBoxIcon fontSize="large" />}
                             handleToggle={handleToggle}
                         />
                     )

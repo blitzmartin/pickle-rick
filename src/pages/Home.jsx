@@ -7,9 +7,9 @@ export default function Home() {
 
     const [characters, setCharacters] = useState([])
     const [query, setQuery] = useState('');
-    const url = "https://rickandmortyapi.com/api/character"
+    const url = "https://rickandmortyapi.com/api/character?page=1"
 
-    // when page loads, fetch data from API and set results (an array of 20 elements) as default value for characters state var
+    // when page loads, fetch data from API and set results of page 1 (an array of 20 elements) as default value for characters state var
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
