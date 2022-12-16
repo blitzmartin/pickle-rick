@@ -1,16 +1,18 @@
+import { useState } from 'react'
 import Card from './Card'
 
 export default function Cards({ characters }) {
     return (
-        <div>Cards
+        <div>
             <ul>
                 {characters.map(character => {
                     return (
-                        <Card key={character.id} name={character.name} imgUrl={character.image} episodes={character.episode} />
+                        <Card key={character.id}
+                            name={character.name}
+                            imgUrl={character.image}
+                            episodes={character.episode} />
                     )
-                })
-                }
-
+                })}
             </ul>
         </div>
     )
