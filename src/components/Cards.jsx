@@ -12,6 +12,10 @@ export default function Cards({ characters }) {
     const notFavoriteItems = characters.filter(item => !favorites.includes(item.id))
     const allItems = [...favoriteItems, ...notFavoriteItems];
 
+    const handleResetFavs = () => {
+        setFavorites([])
+    }
+
     // when plus icon is clicked, the id of selected item is added in favorites ìarray if not already present and gets removed if already present
     const handleToggle = (toggledId) => {
         if (favorites.includes(toggledId)) {
@@ -24,6 +28,10 @@ export default function Cards({ characters }) {
        return (
         <div>
             <h3>You have {favorites.length} {favorites.length === 1 ? "favorite" : "favorites"}</h3>
+            <button 
+                style={{fontSize: "1rem", padding: "8px 10px", cursor: "pointer"}} 
+                onClick={handleResetFavs}>Reset favorites
+            </button>
             <hr />
             <h2>List of Characters:</h2>
             <ul className="cards-container">
