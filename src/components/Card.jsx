@@ -3,7 +3,7 @@ export default function Card({ character, icon, handleToggle }) {
 
     return (
         <li style={{ listStyleType: "none" }}>
-            <div className="card">
+            <div className="card-container">
                 <div>
                     <img alt={name} src={image} />
                 </div>

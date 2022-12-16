@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import Cards from "../components/Cards";
 import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
+import Cards from "../components/Cards";
+import Footer from '../components/Footer'
 
 export default function Home() {
 
@@ -42,6 +43,7 @@ export default function Home() {
             <Header />
             <SearchBar value={query} onChange={handleChange}  />
             <Cards key="cards" characters={filteredChars}  />
+            <Footer />
         </div>
     )
 }
