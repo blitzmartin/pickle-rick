@@ -1,4 +1,4 @@
-import { Button, Checkbox, Divider, GridItem, HStack, Heading, SimpleGrid, Text, VStack } from '@chakra-ui/react';
+import { Button, Checkbox, Divider, HStack, Heading, SimpleGrid, Text, VStack } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { RiHeart3Fill, RiHeart3Line } from 'react-icons/ri';
 import { CustomCard } from './CustomCard';
@@ -7,6 +7,7 @@ export const Cards = ({ characters }) => {
 
     const [favorites, setFavorites] = useState([]);
     const [isOnlyFavorites, setIsOnlyFavorites] = useState(false);
+    const [itemsToShow, setItemsToShow] = useState([])
 
 
     // using localStorage getItem to retrieve the saved favorites, if any
@@ -40,6 +41,14 @@ export const Cards = ({ characters }) => {
         }
     }
 
+    useEffect(() => {
+        if(isOnlyFavorites){
+            setItemsToShow(favoriteItems)
+        } else {
+            setItemsToShow(allItems)
+        }
+    }, [isOnlyFavorites])
+
 
     // using localStorage setItem to add favorites to the local store; it checks if there's any favorite otherwise it will always be overwritten by the empty favorites array on first load
     useEffect(() => {
@@ -58,28 +67,9 @@ export const Cards = ({ characters }) => {
             </HStack>
             <Divider h="0.4" w="90%"/>
             <Heading fontSize={40}>List of Characters:</Heading>
-            {isOnlyFavorites
-                ? <SimpleGrid minW="50%" maxW="70%" spacing={4} templateColumns='repeat(auto-fill, minmax(280px, 1fr))'>
-                    {favoriteItems.map(character => {
-                        return (
-                            <GridItem key={character.id}
-                            w='100%'
-                            >
-                                <CustomCard 
-                                character={character}
-                                icon={favorites.includes(character.id)
-                                    ? <RiHeart3Fill size={30} />
-                                    : <RiHeart3Line size={30}/>
-                                }
-                                handleToggle={handleToggle}
-                             />
-                            </GridItem>
-                        )
-                    })}
-                </SimpleGrid >
-                : <SimpleGrid minW="50%" maxW="70%" spacing={4} templateColumns='repeat(auto-fill, minmax(280px, 1fr))'
+            <SimpleGrid minW="50%" maxW="70%" spacing={4} templateColumns='repeat(auto-fill, minmax(280px, 1fr))'
                 >
-                    {allItems.map(character => {
+                    {itemsToShow.map(character => {
                         return (
                             <CustomCard
                             key={character.id}
@@ -93,7 +83,6 @@ export const Cards = ({ characters }) => {
                         )
                     })}
                 </SimpleGrid >
-            }
         </VStack>
     )
 }
