@@ -2,7 +2,7 @@ import { Box, Text } from '@chakra-ui/react'
 
 export const Footer = () => {
   return (
-    <Box minH={200}>
+    <Box>
       <Text>Made with ♥ by Annalisa De Martino</Text>
     </Box>
   )

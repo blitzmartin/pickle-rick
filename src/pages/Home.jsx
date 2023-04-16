@@ -1,7 +1,7 @@
-import { Container } from '@chakra-ui/react';
+import { VStack } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { Cards } from '../components/Cards';
-import { Footer }from '../components/Footer';
+import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { SearchBar } from '../components/SearchBar';
 
@@ -40,12 +40,12 @@ export default function Home() {
     const filteredChars = filterItems(characters, query)
 
     return (
-        <Container maxW={1300} minW={600} align="center">     
+        <VStack maxW={1300} minW={600} align="center" spacing={8}> 
             <Header />
             <SearchBar value={query} onChange={handleChange}  />
             <Cards key="cards" characters={filteredChars}  />
             <Footer />
-        </Container>
+        </VStack>
     )
 }
 
