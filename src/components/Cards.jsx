@@ -51,7 +51,7 @@ export const Cards = ({ characters }) => {
 
     return (
         <VStack spacing={8} minW="full">
-            <Heading fontSize={40}>You have {favorites.length} {favorites.length === 1 ? "favorite" : "favorites"}</Heading>
+            <Heading fontSize={30}>You have {favorites.length} {favorites.length === 1 ? "favorite" : "favorites"}</Heading>
             <Center>
             <HStack justifyContent="center">
                 <Button size="lg" color='white' bg="green.500" onClick={handleResetFavs}>Reset favorites</Button>
@@ -59,7 +59,7 @@ export const Cards = ({ characters }) => {
             </HStack>
             </Center>
             <Divider />
-            <Heading fontSize={30}>List of Characters:</Heading>
+            <Heading fontSize={40}>List of Characters:</Heading>
             {isChecked
                 ? <SimpleGrid minW="50%" maxW="70%" spacing={4} templateColumns='repeat(auto-fill, minmax(280px, 1fr))'>
                     {favoriteItems.map(character => {
