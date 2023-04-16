@@ -3,7 +3,7 @@ import { Card, CardBody, CardFooter, Divider, Heading, IconButton, Image, Stack,
 export const CustomCard = ({ character, icon, handleToggle }) => {
     const { id, name, image, episode, species, status } = character;
     return (
-    <Card maxW='sm' bg="grey.800" variant="outline">
+    <Card w='sm' bg="grey.800" variant="outline">
         <CardBody>
             <Image alt={name} src={image} borderRadius='lg'/>
             <Stack mt='6' spacing='3'>
