@@ -1,4 +1,4 @@
-import { Button, Center, Checkbox, Divider, GridItem, HStack, Heading, SimpleGrid, VStack } from '@chakra-ui/react';
+import { Button, Checkbox, Divider, GridItem, HStack, Heading, SimpleGrid, Text, VStack } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { RiHeart3Fill, RiHeart3Line } from 'react-icons/ri';
 import { CustomCard } from './CustomCard';
@@ -51,14 +51,12 @@ export const Cards = ({ characters }) => {
 
     return (
         <VStack spacing={8} minW="full">
-            <Heading fontSize={30}>You have {favorites.length} {favorites.length === 1 ? "favorite" : "favorites"}</Heading>
-            <Center>
-            <HStack justifyContent="center">
-                <Button size="lg" color='white' bg="green.500" onClick={handleResetFavs}>Reset favorites</Button>
-                <Checkbox value={isOnlyFavorites} onChange={() => setIsOnlyFavorites(!isOnlyFavorites)} size='md' colorScheme='green'>Show favorites only</Checkbox>
+            <HStack justifyContent="center" spacing={6}>
+                <Text fontSize={20}>You have: {favorites.length} {favorites.length === 1 ? "favorite" : "favorites"}</Text>
+                {favorites.length > 0 &&  <Checkbox value={isOnlyFavorites} onChange={() => setIsOnlyFavorites(!isOnlyFavorites)} size='md' colorScheme='green'>Show favorites only</Checkbox>}
+                {favorites.length > 0 &&   <Button size="sm" color='white' bg="green.500" onClick={handleResetFavs}>Reset favorites</Button>}
             </HStack>
-            </Center>
-            <Divider />
+            <Divider h="0.4" w="90%"/>
             <Heading fontSize={40}>List of Characters:</Heading>
             {isOnlyFavorites
                 ? <SimpleGrid minW="50%" maxW="70%" spacing={4} templateColumns='repeat(auto-fill, minmax(280px, 1fr))'>
