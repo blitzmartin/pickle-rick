@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
-import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
-import Card from './Card'
+import RemoveIcon from '@mui/icons-material/Remove';
+import { useEffect, useState } from 'react';
+import Card from './Card';
 
 export default function Cards({ characters }) {
 
@@ -80,7 +80,7 @@ export default function Cards({ characters }) {
                         )
                     })}
                 </ul>
-                : <ul className="cards-container">
+                : <ul className="cards-container" >
                     {allItems.map(character => {
                         return (
                             <Card key={character.id}
