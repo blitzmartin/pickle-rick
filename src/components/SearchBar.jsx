@@ -1,13 +1,13 @@
-export default function SearchBar({ value, onChange }) {
+import { Box, Input } from '@chakra-ui/react';
+
+export const SearchBar = ({ value, onChange }) => {
   return (
-    <div className="searchbar" >
-      <label>
-        Search character:{' '}
-      </label>
-      <input
+    <Box>
+      <Input
+      placeholder='Search character'
         value={value}
         onChange={onChange}
       />
-    </div>
+    </Box>
   );
 }

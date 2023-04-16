@@ -1,9 +1,9 @@
 import { Container } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import { CardsChakra } from '../components/CardsChakra';
-import {Footer }from '../components/Footer';
-import {Header} from '../components/Header';
-import SearchBar from '../components/SearchBar';
+import { Cards } from '../components/Cards';
+import { Footer }from '../components/Footer';
+import { Header } from '../components/Header';
+import { SearchBar } from '../components/SearchBar';
 
 export default function Home() {
 
@@ -43,7 +43,7 @@ export default function Home() {
         <Container maxW={1300} minW={600} align="center">     
             <Header />
             <SearchBar value={query} onChange={handleChange}  />
-            <CardsChakra key="cards" characters={filteredChars}  />
+            <Cards key="cards" characters={filteredChars}  />
             <Footer />
         </Container>
     )

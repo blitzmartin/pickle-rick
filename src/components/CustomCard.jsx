@@ -1,6 +1,6 @@
 import { Card, CardBody, CardFooter, Divider, Heading, IconButton, Image, Stack, Text } from '@chakra-ui/react';
 
-export const CardChakra = ({ character, icon, handleToggle }) => {
+export const CustomCard = ({ character, icon, handleToggle }) => {
     const { id, name, image, episode, species, status } = character;
     return (
     <Card maxW='sm' bg="grey.800" variant="outline">
