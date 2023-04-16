@@ -6,7 +6,7 @@ import { CustomCard } from './CustomCard';
 export const Cards = ({ characters }) => {
 
     const [favorites, setFavorites] = useState([]);
-    const [isChecked, setIsChecked] = useState(false);
+    const [isOnlyFavorites, setIsOnlyFavorites] = useState(false);
 
 
     // using localStorage getItem to retrieve the saved favorites, if any
@@ -55,12 +55,12 @@ export const Cards = ({ characters }) => {
             <Center>
             <HStack justifyContent="center">
                 <Button size="lg" color='white' bg="green.500" onClick={handleResetFavs}>Reset favorites</Button>
-                <Checkbox value={isChecked} onChange={() => setIsChecked(!isChecked)} size='md' colorScheme='green'>Show favorites only</Checkbox>
+                <Checkbox value={isOnlyFavorites} onChange={() => setIsOnlyFavorites(!isOnlyFavorites)} size='md' colorScheme='green'>Show favorites only</Checkbox>
             </HStack>
             </Center>
             <Divider />
             <Heading fontSize={40}>List of Characters:</Heading>
-            {isChecked
+            {isOnlyFavorites
                 ? <SimpleGrid minW="50%" maxW="70%" spacing={4} templateColumns='repeat(auto-fill, minmax(280px, 1fr))'>
                     {favoriteItems.map(character => {
                         return (
