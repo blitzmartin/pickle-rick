@@ -1,5 +1,4 @@
-import { Button, Center, Divider, Grid, GridItem, HStack, Heading, VStack } from '@chakra-ui/react';
-import { CheckBox } from '@mui/icons-material';
+import { Button, Center, Checkbox, Divider, Grid, GridItem, HStack, Heading, VStack } from '@chakra-ui/react';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { useEffect, useState } from 'react';
@@ -52,12 +51,12 @@ export const Cards = ({ characters }) => {
 
 
     return (
-        <VStack>
+        <VStack spacing={8}>
             <Heading fontSize={40}>You have {favorites.length} {favorites.length === 1 ? "favorite" : "favorites"}</Heading>
             <Center>
             <HStack justifyContent="center">
                 <Button style={{ fontSize: "1rem", padding: "8px 10px", cursor: "pointer" }} onClick={handleResetFavs}>Reset favorites</Button>
-                <CheckBox onChange={() => setIsChecked(!isChecked)} size='md' colorScheme='green'>Show favorites only</CheckBox>
+                <Checkbox value={isChecked} onChange={() => setIsChecked(!isChecked)} size='md' colorScheme='green'>Show favorites only</Checkbox>
             </HStack>
             </Center>
             <Divider />
