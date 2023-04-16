@@ -1,4 +1,4 @@
-import { Box, Button, Center, Divider, Grid, GridItem, HStack, Heading } from '@chakra-ui/react';
+import { Button, Center, Divider, Grid, GridItem, HStack, Heading, VStack } from '@chakra-ui/react';
 import { CheckBox } from '@mui/icons-material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
@@ -52,7 +52,7 @@ export const Cards = ({ characters }) => {
 
 
     return (
-        <Box>
+        <VStack>
             <Heading fontSize={40}>You have {favorites.length} {favorites.length === 1 ? "favorite" : "favorites"}</Heading>
             <Center>
             <HStack justifyContent="center">
@@ -67,7 +67,7 @@ export const Cards = ({ characters }) => {
                     {favoriteItems.map(character => {
                         return (
                             <GridItem key={character.id}
-                            w='100%' h='10'
+                            w='100%'
                             >
                                 <CustomCard 
                                 character={character}
@@ -85,7 +85,7 @@ export const Cards = ({ characters }) => {
                     {allItems.map(character => {
                         return (
                             <GridItem key={character.id}
-                            w='100%' h='10'
+                            w='100%'
                             >
                             <CustomCard
                                 character={character}
@@ -100,6 +100,6 @@ export const Cards = ({ characters }) => {
                     })}
                 </Grid>
             }
-        </Box>
+        </VStack>
     )
 }
