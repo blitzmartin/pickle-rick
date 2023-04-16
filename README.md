@@ -4,10 +4,10 @@
 
 #### Thank you for checking out this project!
 
-The app has all the basic features:
+Basic features of the app:
 
 - it is a single page application;
-- on load, it fetches data from the given Rick&Morty API;
+- on load, it fetches data from the Rick&Morty API;
 - it stores only 20 characters;
 - the homepage shows a grid of cards;
 - each card has at least character name, character image, number of episodes it was featured in;
@@ -20,9 +20,8 @@ The app has also 2 out of 3 bonus features:
 - saves favorites locally with localStorage;
 - with a checkbox you can see just the favorites;
 
-At this time, I have never used Typescript, that's why I am missing the last bonus feature.
-
-I have used MUI icons, rendering conditionally the "Add" or "Remove" icon accordingly to the item being a favorite or not.
+The app uses ChakraUI library.
+I have used react-icons, rendering conditionally the "Add" or "Remove" heart icon accordingly to the item being a favorite or not.
 
 The filter function is not case sensitive.
 
