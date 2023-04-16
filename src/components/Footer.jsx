@@ -1,9 +1,9 @@
-import { Box, Text } from '@chakra-ui/react'
+import { Container, Text } from '@chakra-ui/react'
 
 export const Footer = () => {
   return (
-    <Box>
+    <Container align="center">
       <Text>Made with ♥ by Annalisa De Martino</Text>
-    </Box>
+    </Container>
   )
 }

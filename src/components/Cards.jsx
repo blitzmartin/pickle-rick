@@ -1,15 +1,13 @@
-import { Button, Center, Checkbox, Divider, GridItem, HStack, Heading, SimpleGrid, VStack } from '@chakra-ui/react';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
+import { Button, Checkbox, Divider, HStack, Heading, SimpleGrid, Text, VStack } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
+import { RiHeart3Fill, RiHeart3Line } from 'react-icons/ri';
 import { CustomCard } from './CustomCard';
 
 export const Cards = ({ characters }) => {
 
     const [favorites, setFavorites] = useState([]);
-    const [isChecked, setIsChecked] = useState(false);
-
-
+    const [isOnlyFavorites, setIsOnlyFavorites] = useState(false);
+     const [itemsToShow, setItemsToShow] = useState([])
     // using localStorage getItem to retrieve the saved favorites, if any
     useEffect(() => {
         const storedData = JSON.parse(localStorage.getItem('favorites'));
@@ -27,7 +25,8 @@ export const Cards = ({ characters }) => {
 
     // just a simple handler to quickly reset the favorites
     const handleResetFavs = () => { 
-        setFavorites([]) 
+        setFavorites([])
+        setItemsToShow(allItems)
         localStorage.clear();
     }
 
@@ -41,6 +40,14 @@ export const Cards = ({ characters }) => {
         }
     }
 
+    useEffect(() => {
+        if(isOnlyFavorites){
+            setItemsToShow(favoriteItems)
+        } else {
+            setItemsToShow(allItems)
+        }
+    }, [allItems, favoriteItems, isOnlyFavorites])
+
 
     // using localStorage setItem to add favorites to the local store; it checks if there's any favorite otherwise it will always be overwritten by the empty favorites array on first load
     useEffect(() => {
@@ -52,51 +59,28 @@ export const Cards = ({ characters }) => {
 
     return (
         <VStack spacing={8} minW="full">
-            <Heading fontSize={40}>You have {favorites.length} {favorites.length === 1 ? "favorite" : "favorites"}</Heading>
-            <Center>
-            <HStack justifyContent="center">
-                <Button size="lg" color='white' bg="green.500" onClick={handleResetFavs}>Reset favorites</Button>
-                <Checkbox value={isChecked} onChange={() => setIsChecked(!isChecked)} size='md' colorScheme='green'>Show favorites only</Checkbox>
+            <HStack justifyContent="center" spacing={6}>
+                <Text fontSize={20}>You have: {favorites.length} {favorites.length === 1 ? "favorite" : "favorites"}</Text>
+                {favorites.length > 0 &&  <Checkbox value={isOnlyFavorites} onChange={() => setIsOnlyFavorites(!isOnlyFavorites)} size='md' colorScheme='green'>Show favorites only</Checkbox>}
+                {favorites.length > 0 &&   <Button size="sm" color='white' bg="green.500" onClick={handleResetFavs}>Reset favorites</Button>}
             </HStack>
-            </Center>
-            <Divider />
-            <Heading fontSize={30}>List of Characters:</Heading>
-            {isChecked
-                ? <SimpleGrid minW="50%" maxW="70%" spacing={4} templateColumns='repeat(auto-fill, minmax(280px, 1fr))'>
-                    {favoriteItems.map(character => {
-                        return (
-                            <GridItem key={character.id}
-                            w='100%'
-                            >
-                                <CustomCard 
-                                character={character}
-                                icon={favorites.includes(character.id)
-                                    ? <RemoveIcon fontSize="large" />
-                                    : <AddIcon fontSize="large" />
-                                }
-                                handleToggle={handleToggle}
-                             />
-                            </GridItem>
-                        )
-                    })}
-                </SimpleGrid >
-                : <SimpleGrid minW="50%" maxW="70%" spacing={4} templateColumns='repeat(auto-fill, minmax(280px, 1fr))'
-                >
-                    {allItems.map(character => {
-                        return (
-                            <CustomCard
+            <Divider h="0.4" w="90%"/>
+            <Heading fontSize={40}>List of Characters:</Heading>
+            <SimpleGrid minW="50%" maxW="70%" spacing={4} templateColumns='repeat(auto-fill, minmax(280px, 1fr))'>
+                {itemsToShow.map(character => {
+                    return (
+                        <CustomCard
                             key={character.id}
-                                character={character}
-                                icon={favorites.includes(character.id)
-                                    ? <RemoveIcon fontSize="large" />
-                                    : <AddIcon fontSize="large" />
-                                }
-                                handleToggle={handleToggle}
-                            />
-                        )
-                    })}
-                </SimpleGrid >
-            }
+                            character={character}
+                            handleToggle={handleToggle}
+                            icon={favorites.includes(character.id)
+                                ? <RiHeart3Fill size={30}/>
+                                : <RiHeart3Line size={30} />
+                            }
+                        />
+                    )
+                })}
+            </SimpleGrid >
         </VStack>
     )
 }

@@ -15,12 +15,12 @@ export const CustomCard = ({ character, icon, handleToggle }) => {
             </Stack>
             <IconButton 
                 position="absolute" 
-                right="3" bottom="3" size="md"  
-                color='black' bg="white"
+                right="3" bottom="3"
                 aria-label='favorites' 
-                variant="outline"
+                variant="ghost"
                 onClick={() => { handleToggle(id) }} 
-                icon={icon} />
+                icon={icon}
+            />
         </CardBody>
     </Card>
     )
