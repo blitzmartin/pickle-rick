@@ -1,8 +1,8 @@
-# The Pickle Rick Project - 4Securitas
+# The Pickle Rick Project
 
 ![](https://cdn.mos.cms.futurecdn.net/4v4rmrxbbRs2k8rw3zegpE-1200-80.jpg)
 
-#### Thank you for reviewing this assignment!
+#### Thank you for checking out this project!
 
 The app has all the basic features:
 
