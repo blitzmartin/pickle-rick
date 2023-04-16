@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react';
+import { CardsChakra } from '../components/CardsChakra';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
-import Cards from "../components/Cards";
-import Footer from '../components/Footer'
 
 export default function Home() {
 
@@ -42,7 +42,7 @@ export default function Home() {
         <div className='main-container'>     
             <Header />
             <SearchBar value={query} onChange={handleChange}  />
-            <Cards key="cards" characters={filteredChars}  />
+            <CardsChakra key="cards" characters={filteredChars}  />
             <Footer />
         </div>
     )

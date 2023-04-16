@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react'
-import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
-import Card from './Card'
+import RemoveIcon from '@mui/icons-material/Remove';
+import { useEffect, useState } from 'react';
 import { CardChakra } from './CardChakra';
 
-export default function Cards({ characters }) {
+export const CardsChakra = ({ characters }) => {
 
     const [favorites, setFavorites] = useState([]);
     const [isChecked, setIsChecked] = useState(false);
@@ -70,7 +69,7 @@ export default function Cards({ characters }) {
                 ? <ul className="cards-container">
                     {favoriteItems.map(character => {
                         return (
-                            <Card key={character.id}
+                            <CardChakra key={character.id}
                                 character={character}
                                 icon={favorites.includes(character.id)
                                     ? <RemoveIcon fontSize="large" />
@@ -84,7 +83,7 @@ export default function Cards({ characters }) {
                 : <ul className="cards-container">
                     {allItems.map(character => {
                         return (
-                            <Card key={character.id}
+                            <CardChakra key={character.id}
                                 character={character}
                                 icon={favorites.includes(character.id)
                                     ? <RemoveIcon fontSize="large" />
