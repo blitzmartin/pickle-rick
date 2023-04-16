@@ -67,22 +67,21 @@ export const Cards = ({ characters }) => {
             </HStack>
             <Divider h="0.4" w="90%"/>
             <Heading fontSize={40}>List of Characters:</Heading>
-            <SimpleGrid minW="50%" maxW="70%" spacing={4} templateColumns='repeat(auto-fill, minmax(280px, 1fr))'
-                >
-                    {itemsToShow.map(character => {
-                        return (
-                            <CustomCard
+            <SimpleGrid minW="50%" maxW="70%" spacing={4} templateColumns='repeat(auto-fill, minmax(280px, 1fr))'>
+                {itemsToShow.map(character => {
+                    return (
+                        <CustomCard
                             key={character.id}
-                                character={character}
-                                icon={favorites.includes(character.id)
-                                    ? <RiHeart3Fill size={30}/>
-                                    : <RiHeart3Line size={30} />
-                                }
-                                handleToggle={handleToggle}
-                            />
-                        )
-                    })}
-                </SimpleGrid >
+                            character={character}
+                            handleToggle={handleToggle}
+                            icon={favorites.includes(character.id)
+                                ? <RiHeart3Fill size={30}/>
+                                : <RiHeart3Line size={30} />
+                            }
+                        />
+                    )
+                })}
+            </SimpleGrid >
         </VStack>
     )
 }
