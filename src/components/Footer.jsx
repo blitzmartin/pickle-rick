@@ -1,5 +1,9 @@
-export default function Footer() {
+import { Box, Text } from '@chakra-ui/react'
+
+export const Footer = () => {
   return (
-    <footer className="footer"><p>4Securitas Assestment - Made with ♥ by Annalisa De Martino</p></footer>
+    <Box minH={200}>
+      <Text>Made with ♥ by Annalisa De Martino</Text>
+    </Box>
   )
 }

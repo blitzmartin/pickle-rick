@@ -1,3 +1,5 @@
+import { Box, Button, Center, Divider, HStack, Heading } from '@chakra-ui/react';
+import { CheckBox } from '@mui/icons-material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { useEffect, useState } from 'react';
@@ -50,21 +52,16 @@ export const CardsChakra = ({ characters }) => {
 
 
     return (
-        <div>
-            <h3>You have {favorites.length} {favorites.length === 1 ? "favorite" : "favorites"}</h3>
-            <button
-                style={{ fontSize: "1rem", padding: "8px 10px", cursor: "pointer" }}
-                onClick={handleResetFavs}>Reset favorites
-            </button>
-            <label>
-                <input
-                    type="checkbox"
-                    onChange={() => setIsChecked(!isChecked)}
-                />
-                Show favorites only
-            </label>
-            <hr />
-            <h2>List of Characters:</h2>
+        <Box>
+            <Heading fontSize={40}>You have {favorites.length} {favorites.length === 1 ? "favorite" : "favorites"}</Heading>
+            <Center>
+            <HStack justifyContent="center">
+                <Button style={{ fontSize: "1rem", padding: "8px 10px", cursor: "pointer" }} onClick={handleResetFavs}>Reset favorites</Button>
+                <CheckBox onChange={() => setIsChecked(!isChecked)} size='md' colorScheme='green'>Show favorites only</CheckBox>
+            </HStack>
+            </Center>
+            <Divider />
+            <Heading fontSize={30}>List of Characters:</Heading>
             {isChecked
                 ? <ul className="cards-container">
                     {favoriteItems.map(character => {
@@ -95,6 +92,6 @@ export const CardsChakra = ({ characters }) => {
                     })}
                 </ul>
             }
-        </div>
+        </Box>
     )
 }
