@@ -7,9 +7,7 @@ export const Cards = ({ characters }) => {
 
     const [favorites, setFavorites] = useState([]);
     const [isOnlyFavorites, setIsOnlyFavorites] = useState(false);
-    const [itemsToShow, setItemsToShow] = useState([])
-
-
+     const [itemsToShow, setItemsToShow] = useState([])
     // using localStorage getItem to retrieve the saved favorites, if any
     useEffect(() => {
         const storedData = JSON.parse(localStorage.getItem('favorites'));
@@ -27,7 +25,8 @@ export const Cards = ({ characters }) => {
 
     // just a simple handler to quickly reset the favorites
     const handleResetFavs = () => { 
-        setFavorites([]) 
+        setFavorites([])
+        setItemsToShow(allItems)
         localStorage.clear();
     }
 
@@ -47,7 +46,7 @@ export const Cards = ({ characters }) => {
         } else {
             setItemsToShow(allItems)
         }
-    }, [isOnlyFavorites])
+    }, [allItems, favoriteItems, isOnlyFavorites])
 
 
     // using localStorage setItem to add favorites to the local store; it checks if there's any favorite otherwise it will always be overwritten by the empty favorites array on first load
