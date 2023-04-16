@@ -1,7 +1,6 @@
 import { Button, Center, Checkbox, Divider, GridItem, HStack, Heading, SimpleGrid, VStack } from '@chakra-ui/react';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
 import { useEffect, useState } from 'react';
+import { RiHeart3Fill, RiHeart3Line } from 'react-icons/ri';
 import { CustomCard } from './CustomCard';
 
 export const Cards = ({ characters }) => {
@@ -71,8 +70,8 @@ export const Cards = ({ characters }) => {
                                 <CustomCard 
                                 character={character}
                                 icon={favorites.includes(character.id)
-                                    ? <RemoveIcon fontSize="large" />
-                                    : <AddIcon fontSize="large" />
+                                    ? <RiHeart3Fill size={30} />
+                                    : <RiHeart3Line size={30}/>
                                 }
                                 handleToggle={handleToggle}
                              />
@@ -88,8 +87,8 @@ export const Cards = ({ characters }) => {
                             key={character.id}
                                 character={character}
                                 icon={favorites.includes(character.id)
-                                    ? <RemoveIcon fontSize="large" />
-                                    : <AddIcon fontSize="large" />
+                                    ? <RiHeart3Fill size={30}/>
+                                    : <RiHeart3Line size={30} />
                                 }
                                 handleToggle={handleToggle}
                             />
