@@ -1,4 +1,4 @@
-import { Button, Center, Checkbox, Divider, Grid, GridItem, HStack, Heading, VStack } from '@chakra-ui/react';
+import { Button, Center, Checkbox, Divider, GridItem, HStack, Heading, SimpleGrid, VStack } from '@chakra-ui/react';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { useEffect, useState } from 'react';
@@ -51,18 +51,18 @@ export const Cards = ({ characters }) => {
 
 
     return (
-        <VStack spacing={8}>
+        <VStack spacing={8} minW="full">
             <Heading fontSize={40}>You have {favorites.length} {favorites.length === 1 ? "favorite" : "favorites"}</Heading>
             <Center>
             <HStack justifyContent="center">
-                <Button style={{ fontSize: "1rem", padding: "8px 10px", cursor: "pointer" }} onClick={handleResetFavs}>Reset favorites</Button>
+                <Button size="lg" color='white' bg="green.500" onClick={handleResetFavs}>Reset favorites</Button>
                 <Checkbox value={isChecked} onChange={() => setIsChecked(!isChecked)} size='md' colorScheme='green'>Show favorites only</Checkbox>
             </HStack>
             </Center>
             <Divider />
             <Heading fontSize={30}>List of Characters:</Heading>
             {isChecked
-                ? <Grid templateColumns='repeat(3, 1fr)' gap={6}>
+                ? <SimpleGrid minW="50%" maxW="70%" spacing={4} templateColumns='repeat(auto-fill, minmax(280px, 1fr))'>
                     {favoriteItems.map(character => {
                         return (
                             <GridItem key={character.id}
@@ -79,14 +79,13 @@ export const Cards = ({ characters }) => {
                             </GridItem>
                         )
                     })}
-                </Grid>
-                : <Grid templateColumns='repeat(3, 1fr)' gap={6}>
+                </SimpleGrid >
+                : <SimpleGrid minW="50%" maxW="70%" spacing={4} templateColumns='repeat(auto-fill, minmax(280px, 1fr))'
+                >
                     {allItems.map(character => {
                         return (
-                            <GridItem key={character.id}
-                            w='100%'
-                            >
                             <CustomCard
+                            key={character.id}
                                 character={character}
                                 icon={favorites.includes(character.id)
                                     ? <RemoveIcon fontSize="large" />
@@ -94,10 +93,9 @@ export const Cards = ({ characters }) => {
                                 }
                                 handleToggle={handleToggle}
                             />
-                            </GridItem>
                         )
                     })}
-                </Grid>
+                </SimpleGrid >
             }
         </VStack>
     )
