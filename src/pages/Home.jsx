@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
-import Header from '../components/Header';
-import SearchBar from '../components/SearchBar';
-import Cards from "../components/Cards";
-import Footer from '../components/Footer'
+import { Container } from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
+import { Cards } from '../components/Cards';
+import { Footer }from '../components/Footer';
+import { Header } from '../components/Header';
+import { SearchBar } from '../components/SearchBar';
 
 export default function Home() {
 
@@ -39,12 +40,12 @@ export default function Home() {
     const filteredChars = filterItems(characters, query)
 
     return (
-        <div className='main-container'>     
+        <Container maxW={1300} minW={600} align="center">     
             <Header />
             <SearchBar value={query} onChange={handleChange}  />
             <Cards key="cards" characters={filteredChars}  />
             <Footer />
-        </div>
+        </Container>
     )
 }
 
