@@ -40,7 +40,7 @@ export default function Home() {
     const filteredChars = filterItems(characters, query)
 
     return (
-        <VStack maxW={1300} minW={600} align="center" spacing={8}> 
+        <VStack minW={600} align="center" spacing={8}> 
             <Header />
             <SearchBar value={query} onChange={handleChange}  />
             <Cards key="cards" characters={filteredChars}  />
