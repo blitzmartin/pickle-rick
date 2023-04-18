@@ -30,8 +30,6 @@ I have also added a "reset" button to quickly clear all the favorites (it also c
 
 The app does not use Context. All the features are developed with state variables and props.
 
-The useEffect hook serves the initial data fetch and the localStorage getItem and setItem.
-
 The toggle function to flag an item as favorite does not create a duplicated array of character objects, it only saves the ids of the selected items.
 
 I hope the comments in the code will be eloquent enough to figure out what's going on.
